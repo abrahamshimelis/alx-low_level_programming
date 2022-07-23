@@ -12,7 +12,8 @@ int str2int(char *s);
 
 int main(int argc, char *argv[])
 {
-	int i, sum;
+	unsigned int sum;
+	int i;
 
 	sum = 0;
 
