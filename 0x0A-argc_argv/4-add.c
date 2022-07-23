@@ -46,7 +46,8 @@ int main(int argc, char *argv[])
 
 int str2int(char *s)
 {
-	int len, i, f, digit, n;
+	int len, i, f, digit;
+	unsigned int n;
 
 	len = 0;
 	i = 0;
