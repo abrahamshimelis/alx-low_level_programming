@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		if (str2int(argv[i]) == 'e')
+		if (str2int(argv[i]) == '\0')
 		{
 			printf("Error\n");
 			return (1);
@@ -70,7 +70,7 @@ int str2int(char *s)
 		i++;
 	}
 	if (f == 0)
-		return ('e');
+		return ('\0');
 
 	return (n);
 }
