@@ -28,27 +28,25 @@ char *str_concat(char *s1, char *s2)
 
 	if (p == NULL)
 		return (NULL);
-	if (s1 == NULL)
-		*p = ' ';
+
 	if (s1 != NULL)
 	{
 		while (i < len1)
 		{
-			*(p + i) = s1[i];
+			p[i] = s1[i];
 			i++;
 		}
 	}
-	if (s2 == NULL)
-		*(p + i) = ' ';
+
 	if (s2 != NULL)
 	{
 		while (j < len2)
 		{
-			*(p + i + j) = s2[j];
+			p[i + j] = s2[j];
 			j++;
 		}
 	}
-	*(p + i + j) = '\0';
+	p[i + j] = '\0';
 
 	return (p);
 }
