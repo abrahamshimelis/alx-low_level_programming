@@ -28,15 +28,25 @@ char *str_concat(char *s1, char *s2)
 
 	if (p == NULL)
 		return (NULL);
-	while (i < len1)
+	if (s1 == NULL)
+		*p = ' ';
+	if (s1 != NULL)
 	{
-		*(p + i) = s1[i];
-		i++;
+		while (i < len1)
+		{
+			*(p + i) = s1[i];
+			i++;
+		}
 	}
-	while (j < len2)
+	if (s2 == NULL)
+		*(p + i) = ' ';
+	if (s2 != NULL)
 	{
-		*(p + i + j) = s2[j];
-		j++;
+		while (j < len2)
+		{
+			*(p + i + j) = s2[j];
+			j++;
+		}
 	}
 	*(p + i + j) = '\0';
 
