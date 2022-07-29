@@ -1,4 +1,22 @@
 #include <stdlib.h>
+char *_memset(char *buffer, unsigned int size, char c);
+/**
+ * _memset - set memory to zero
+ * @buffer
+ * @size
+ * @c
+ *
+ * Return: nothing
+ */
+
+char *_memset(char *buffer, unsigned int size, char c)
+{
+	unsigned int i;
+
+	for (i = 0; i < size; i++)
+		buffer[i] = c;
+	return (buffer);
+}
 
 /**
  * *_calloc - allocates memory for an array, using malloc
@@ -25,5 +43,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	p = malloc((size * nmemb));
 	if (p == NULL)
 		return (NULL);
+	_memset(p, nmemb, 0);
 	return (p);
 }

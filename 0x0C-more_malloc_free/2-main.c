@@ -44,5 +44,9 @@ int main(void)
 	a[97] = '!';
 	simple_print_buffer(a, 98);
 	free(a);
+
+	a = _calloc(0, sizeof(int));
+	*a = 98;
+	printf("%d\n", *a);
 	return (0);
 }
