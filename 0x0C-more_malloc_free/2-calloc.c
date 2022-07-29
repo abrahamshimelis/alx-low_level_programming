@@ -2,9 +2,9 @@
 char *_memset(char *buffer, unsigned int size, char c);
 /**
  * _memset - set memory to zero
- * @buffer
- * @size
- * @c
+ * @buffer: address of memory
+ * @size: number of elements
+ * @c: character to be filled
  *
  * Return: nothing
  */
