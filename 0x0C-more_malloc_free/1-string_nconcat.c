@@ -12,43 +12,42 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	/**
-	 * if s1 or/and s2 = NULL
-	 * yes -> len1 or/and len2 = 0
-	 * no -> nothing
-	 * count s1, s2
-	 * if len2 >= n
-	 * yes -> n = len2
-	 * no -> nothing
-	 * create new memory space with size of len1 + n + 1
-	 * if create new memory = success
-	 * yes-> copy s1 & s2 & '\0' to new memory location, return that location
-	 * no-> return NULL
-	*/
-
-	unsigned int i, j, k;
+	unsigned int i, j, len1, len2;
 	char *str;
 
+	len1 = 0;
+	len2 = 0;
 	i = 0;
 	j = 0;
 
-	if (s2 == NULL)
-		n = 1;
-
 	while (s1 && s1[i] != '\0')
-		i++;
+		len1++;
 	while (s2 && s2[j] != '\0')
-		j++;
-	if (n >= j)
-		n = j;
-	str = malloc(sizeof(char) * (i + j + 1));
+		len2++;
+	if (n < len2)
+		str = malloc(sizeof(char) * (len1 + n + 1));
+	else
+		str = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (str == NULL)
 		return (NULL);
-	for (k = 0; k < i; k++)
-		str[k] = s1[k];
-	for (k = 0; k < n; k++)
-		str[i + k] = s2[k];
-	str[i + n] = '\0';
+	while (i < len1)
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (n < len2 && j < n)
+	{
+		str[i] = s2[j];
+		j++;
+		i++;
+	}
+	while (n >= len2 && j < len2)
+	{
+		str[i] = s2[j];
+		j++;
+		i++;
+	}
+	str[i] = '\0';
 	return (str);
 
 }
